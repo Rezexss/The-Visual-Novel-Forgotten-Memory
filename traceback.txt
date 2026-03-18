@@ -1,89 +1,51 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
-
-During handling of the above exception, another exception occurred:
-
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
-
-During handling of the above exception, another exception occurred:
-
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
+  File "game/script.rpy", line 637, in script
+FileNotFoundError: Couldn't find file 'gui/window_icon.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/common/00keymap.rpy", line 504, in script
-    python hide:
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1273, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/00keymap.rpy", line 504, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 531, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loadsave.py", line 184, in save
-    dump((roots, renpy.game.log), logf)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/compat/pickle.py", line 308, in dump
-    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "renpy/common/00keymap.rpy", line 504, in script
-    python hide:
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1273, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/00keymap.rpy", line 504, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 531, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loadsave.py", line 184, in save
-    dump((roots, renpy.game.log), logf)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/compat/pickle.py", line 308, in dump
-    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "renpy/common/00keymap.rpy", line 504, in script
-    python hide:
-  File "renpy/ast.py", line 1187, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1273, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/common/00keymap.rpy", line 504, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 531, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/loadsave.py", line 184, in save
-    dump((roots, renpy.game.log), logf)
-    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/compat/pickle.py", line 308, in dump
-    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-_pickle.PicklingError: Can't pickle <class 'store.GameDatabase'>: it's not the same object as store.GameDatabase
+  File "game/script.rpy", line 637, in script
+  File "renpy/ast.py", line 2925, in execute
+    Say.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "renpy/ast.py", line 991, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/exports/sayexports.py", line 129, in say
+    who(what, *args, **kwargs)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1565, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 1220, in do_display
+    display_say(who, what, self.do_show, **display_args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/character.py", line 902, in display_say
+    rv = renpy.ui.interact(mouse="say", type=type, roll_forward=roll_forward)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ui.py", line 306, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/display/core.py", line 2108, in interact
+    self.start()
+    ~~~~~~~~~~^^
+  File "renpy/display/core.py", line 918, in start
+    self.post_init()
+    ~~~~~~~~~~~~~~^^
+  File "renpy/display/core.py", line 1001, in post_init
+    self.set_icon()
+    ~~~~~~~~~~~~~^^
+  File "renpy/display/core.py", line 1054, in set_icon
+    with renpy.loader.load(icon, directory="images") as f:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^      
+  File "renpy/loader.py", line 712, in load
+    raise FileNotFoundError("Couldn't find file '%s'." % name)
+FileNotFoundError: Couldn't find file 'gui/window_icon.png'.
 
 Windows-10-10.0.19041-SP0 AMD64
 Ren'Py 8.5.2.26010301
 forrgoten memory1 1.0
-Wed Mar 18 04:09:02 2026
+Wed Mar 18 18:40:13 2026
