@@ -27,7 +27,7 @@ label splashscreen:
     with Pause(1)
 
     play sound "audio/intro.ogg"
-    show text "{font=fonts/YourFont.ttf}{color=#fff}Better with headphones!{/color}{/font}" with dissolve
+    show text "{font=fonts/ofont.ru_Gnocchi.ttf}{color=#FFFFFF}Рекомендуется надеть наушники для полного погружения!{/color}{/font}" with dissolve
     with Pause(2)
 
     hide text with dissolve
